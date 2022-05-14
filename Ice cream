@@ -1,0 +1,12 @@
+print("Welcome to The Ice Creamery:")
+flavorsList = ["Vanilla", "Chocolate", "Strawberry"]
+numFlavours = len(flavorsList)
+print("Number of flavors: ", numFlavours)
+print("List of flavor number and their names:")
+for i in range(0, numFlavours):
+  print(i+1, flavorsList[i])
+conePrices={"S":"$150","M":"$250","L":"$350"}
+coneSizes={"S":"small","M":"medium","L":"large"}
+customerSize = input("Enter a cone size: ")
+customerFlavor = int(input("Enter a flavor number: "))
+print("Your flovor: ",flavorsList[customerFlavor-1], ", Price: ", conePrices[customerSize], ", Size Description: ",coneSizes[customerSize])
