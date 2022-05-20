@@ -1,0 +1,76 @@
+class icecream:
+    def __init__(self,types,flavours,costs):
+        self.name=types
+        self.flavors=flavours
+        self.costs=costs
+        
+
+class toppings:
+    def __init__(self,toppings,costs):
+        self.name=toppings
+        self.costs=costs
+
+
+stick_vannila = icecream("stick","vannilla",10)
+stick_chocolate = icecream("stick","chocolate",15)
+stick_strawberry = icecream("stick","strawberry",20)
+cone_vannila=icecream("cone","vannila",30)
+cone_chocolate = icecream("cone","chocolate",35)
+cone_strawberry = icecream("cone","strawberry",40)
+cup_vannila=icecream("cup","vannila",10)
+cup_chocolate = icecream("cup","chocolate",15)
+cup_strawberry = icecream("cup","strawberry",20)
+
+toppings_oreocrumbles=toppings("oreo_crumble",20)
+toppings_cherries=toppings("cherries",35)
+toppings_chocolatechips=toppings("chocolate_chips",60)
+toppings_fruityfruity=toppings("fruity_fruity",10)
+
+ice=[stick_vannila,stick_chocolate,stick_strawberry,cone_vannila,cone_chocolate,cone_strawberry,cup_vannila,cup_chocolate,cup_strawberry]
+topping=[toppings_oreocrumbles,toppings_cherries,toppings_chocolatechips,toppings_fruityfruity]
+
+
+d={}
+t={}
+for i in range(len(ice)):
+    d[i]=ice[i]
+for i in range(len(topping)):
+    t[i]=topping[i]
+    
+print("serial","   ","name","   ","flavour","  ","price")
+for i,j in zip(d.keys(),d.values()):
+    print(i,"    ",j.name,"   ",j.flavors,"  ",j.costs)
+
+print("serial","    ","Name","   ","Cost")
+
+for i,j in zip(t.keys(),t.values()):
+    print(i,"    ",j.name,"   ",j.costs)
+
+order=[]
+top=[]
+total=0
+print("Enter 100 to complete order")
+while True:
+    food=int(input("Enter the Serial No. of IceCream="))
+    if(food==100):
+        break
+    if("chocolate"==d[food].flavors):
+        tops=int(input("Enter The toppings(If you dont want toppins type 400)="))
+        
+        if(tops==400):
+            break
+        top.append(tops)
+        total=total+t[tops].costs
+    
+    order.append(food)
+    total=total+d[food].costs
+
+print("Your order is:")
+print("serial","   ","name","   ","flavour","  ","price")
+for i in order:
+    print(i,"    ",d[i].name,"   ",d[i].flavors,"  ",d[i].costs)
+print("serial","    ","Name","   ","Cost")
+for i in top:
+    print(i,"    ",t[i].name,"   ",t[i].costs)
+
+print("Total Amount=",total)
